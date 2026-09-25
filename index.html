@@ -36,13 +36,13 @@
   .sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 
   /* Hero */
-  .hero { position: relative; text-align: center; padding: 30px 16px 48px; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
-  .hero-word { font-family: "Mrs Saint Delafield", "Marck Script", cursive; font-weight: 400; font-size: clamp(46px, 12vw, 68px); color: #7a2438; margin-bottom: clamp(18px, 3.5vh, 30px); }
+  .hero { position: relative; text-align: center; padding: 20px 16px 32px; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
+  .hero-word { font-family: "Mrs Saint Delafield", "Marck Script", cursive; font-weight: 400; font-size: clamp(42px, 11vw, 62px); color: #7a2438; margin-bottom: clamp(10px, 2vh, 18px); }
   .hero-block { width: min(90vw, 460px); margin: 0 auto; }
-  .photos { display: flex; justify-content: center; gap: clamp(10px, 3vw, 18px); margin-bottom: clamp(20px, 4vh, 32px); }
+  .photos { display: flex; justify-content: center; gap: clamp(10px, 3vw, 18px); margin-bottom: clamp(12px, 2.4vh, 20px); }
   .frame { flex: 1 1 0; min-width: 0; }
   .frame img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
-  .frame figcaption { margin-top: 10px; font-family: "Cormorant Garamond", serif; font-size: clamp(22px, 6vw, 30px); font-weight: 500; letter-spacing: .08em; color: var(--wine-deep); text-transform: uppercase; }
+  .frame figcaption { margin-top: 6px; font-family: "Cormorant Garamond", serif; font-size: clamp(20px, 5.4vw, 27px); font-weight: 500; letter-spacing: .08em; color: var(--wine-deep); text-transform: uppercase; }
   @media (prefers-reduced-motion: no-preference) {
     .hero-word { animation: fadeUp .9s ease both; }
     .frame { animation: rise 1s cubic-bezier(.22,.61,.36,1) both; }
@@ -52,15 +52,15 @@
   }
 
   /* Greeting */
-  .greet-text { max-width: 420px; margin: 0 auto; font-family: "Cormorant Garamond", serif; font-size: clamp(19px, 4.8vw, 23px); line-height: 1.6; font-weight: 400; color: var(--wine-deep); text-wrap: balance; }
+  .greet-text { max-width: 420px; margin: 0 auto; font-family: "Cormorant Garamond", serif; font-size: clamp(18px, 4.4vw, 21px); line-height: 1.5; font-weight: 400; color: var(--wine-deep); text-wrap: balance; }
   .greet-text em { color: var(--rose); }
-  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; width: 100%; margin: clamp(24px, 4.5vh, 38px) 0 30px; }
-  .week-day { font-family: "Cormorant Garamond", serif; font-size: 15px; font-weight: 400; letter-spacing: .08em; color: var(--dust); margin-bottom: 10px; text-transform: uppercase; }
-  .week-num { position: relative; font-family: "Cormorant Garamond", serif; font-size: 22px; font-weight: 500; color: var(--wine-deep); height: 46px; display: flex; align-items: center; justify-content: center; }
-  .week-num.hl { color: var(--wine); font-weight: 600; }
-  .week-num.hl .heart-mark { position: absolute; inset: -10px; }
+  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; width: 100%; margin: clamp(14px, 2.6vh, 22px) 0 18px; }
+  .week-day { font-family: "Cormorant Garamond", serif; font-size: 14px; font-weight: 400; letter-spacing: .08em; color: var(--dust); margin-bottom: 6px; text-transform: uppercase; }
+  .week-num { position: relative; font-family: "Cormorant Garamond", serif; font-size: 21px; font-weight: 500; color: var(--wine-deep); height: 40px; display: flex; align-items: center; justify-content: center; }
+  .week-num.hl { position: relative; color: var(--wine); font-weight: 600; isolation: isolate; }
+  .week-num.hl .heart-mark { position: absolute; inset: -10px; z-index: 1; }
   .week-num.hl .heart-mark path { fill: var(--wine); stroke: none; }
-  .week-num.hl .num-text { position: relative; color: #fff; }
+  .week-num.hl .num-text { position: relative; z-index: 2; color: #fff; }
 
   /* Program */
   .schedule { max-width: 520px; margin: 0 auto; text-align: left; position: relative; }
