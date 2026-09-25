@@ -37,7 +37,8 @@
 
   /* Hero */
   .hero { position: relative; text-align: center; padding: 20px 16px 32px; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
-  .hero-word { font-family: "Mrs Saint Delafield", "Marck Script", cursive; font-weight: 400; font-size: clamp(42px, 11vw, 62px); color: #7a2438; margin-bottom: clamp(10px, 2vh, 18px); }
+  .hero-word { font-family: "Mrs Saint Delafield", "Marck Script", cursive; font-weight: 400; font-size: clamp(42px, 11vw, 62px); color: #7a2438; margin-bottom: 0; }
+  .hero-date { font-family: "Cormorant Garamond", serif; font-size: clamp(20px, 5vw, 26px); font-weight: 500; letter-spacing: .18em; color: var(--dust); margin-top: -30px; margin-bottom: clamp(10px, 2vh, 18px); }
   .hero-block { width: min(90vw, 460px); margin: 0 auto; }
   .photos { display: flex; justify-content: center; gap: clamp(10px, 3vw, 18px); margin-bottom: clamp(12px, 2.4vh, 20px); }
   .frame { flex: 1 1 0; min-width: 0; }
@@ -58,7 +59,7 @@
   .week-day { font-family: "Cormorant Garamond", serif; font-size: 14px; font-weight: 400; letter-spacing: .08em; color: var(--dust); margin-bottom: 6px; text-transform: uppercase; }
   .week-num { position: relative; font-family: "Cormorant Garamond", serif; font-size: 21px; font-weight: 500; color: var(--wine-deep); height: 40px; display: flex; align-items: center; justify-content: center; }
   .week-num.hl { position: relative; color: var(--wine); font-weight: 600; isolation: isolate; }
-  .week-num.hl .heart-mark { position: absolute; inset: -10px; z-index: 1; }
+  .week-num.hl .heart-mark { position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; transform: translate(-50%, -50%); z-index: 1; }
   .week-num.hl .heart-mark path { fill: var(--wine); stroke: none; }
   .week-num.hl .num-text { position: relative; z-index: 2; color: #fff; }
 
@@ -147,6 +148,7 @@
   <!-- HERO -->
   <header class="hero section">
     <p class="hero-word">wedding</p>
+    <p class="hero-date">20.11.2026</p>
     <div class="hero-block">
       <div class="photos">
         <figure class="frame"><img src="groom-child.jpg" alt="Иван в детстве" fetchpriority="high" decoding="async"><figcaption>Иван</figcaption></figure>
