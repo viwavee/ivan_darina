@@ -12,7 +12,7 @@
 <link rel="preload" as="image" href="bride-child.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&family=Marck+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&family=Marck+Script&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,36 +36,31 @@
   .sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 
   /* Hero */
-  .hero { text-align: center; padding: 36px 20px; min-height: 100vh; min-height: 100svh; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-  .hero-invite { font-family: "Marck Script", cursive; font-size: clamp(50px, 15vw, 84px); line-height: 1; color: var(--wine); margin-bottom: clamp(18px, 3.5vh, 30px); }
-  .photos { display: flex; justify-content: center; gap: clamp(12px, 4vw, 26px); margin-bottom: clamp(22px, 5vh, 40px); }
-  .frame { width: clamp(120px, min(40vw, 25vh), 230px); }
-  .frame img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; border-radius: 6px; }
-  .hero h1 { font-size: clamp(46px, 13vw, 88px); line-height: 1; font-weight: 500; color: var(--wine); }
-  .hero h1 i { font-family: "Marck Script", cursive; color: var(--rose); font-weight: 400; padding: 0 .15em; font-size: .8em; }
-  .hero-date { margin-top: clamp(14px, 2.5vh, 22px); font-family: "Cormorant Garamond", serif; font-size: clamp(30px, 9vw, 50px); letter-spacing: .18em; color: var(--wine); padding-left: .18em; }
+  .hero { position: relative; text-align: center; padding: 30px 16px 48px; display: flex; flex-direction: column; align-items: center; overflow: hidden; }
+  .hero-word { font-family: "Mrs Saint Delafield", "Marck Script", cursive; font-weight: 400; font-size: clamp(46px, 12vw, 68px); color: #7a2438; margin-bottom: clamp(18px, 3.5vh, 30px); }
+  .hero-block { width: min(90vw, 460px); margin: 0 auto; }
+  .photos { display: flex; justify-content: center; gap: clamp(10px, 3vw, 18px); margin-bottom: clamp(20px, 4vh, 32px); }
+  .frame { flex: 1 1 0; min-width: 0; }
+  .frame img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+  .frame figcaption { margin-top: 10px; font-family: "Cormorant Garamond", serif; font-size: clamp(22px, 6vw, 30px); font-weight: 500; letter-spacing: .08em; color: var(--wine-deep); text-transform: uppercase; }
   @media (prefers-reduced-motion: no-preference) {
+    .hero-word { animation: fadeUp .9s ease both; }
     .frame { animation: rise 1s cubic-bezier(.22,.61,.36,1) both; }
-    .frame:nth-child(2) { animation-delay: .25s; }
+    .frame:nth-child(2) { animation-delay: .18s; }
+    .frame figcaption { animation: fadeUp .8s ease .3s both; }
     @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
   }
 
   /* Greeting */
-  .greet-text { max-width: 480px; margin: 0 auto; font-family: "Cormorant Garamond", serif; font-size: clamp(22px, 4.6vw, 27px); line-height: 1.5; font-weight: 500; color: var(--wine-deep); text-wrap: balance; }
+  .greet-text { max-width: 420px; margin: 0 auto; font-family: "Cormorant Garamond", serif; font-size: clamp(19px, 4.8vw, 23px); line-height: 1.6; font-weight: 400; color: var(--wine-deep); text-wrap: balance; }
   .greet-text em { color: var(--rose); }
-
-  /* Calendar */
-  .cal-card { max-width: 380px; margin: 0 auto; background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 26px 20px 22px; }
-  .cal-month { font-size: 14px; font-weight: 600; letter-spacing: .3em; color: var(--wine); margin-bottom: 18px; padding-left: .3em; }
-  .cal-weekdays, .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); }
-  .cal-weekdays { margin-bottom: 8px; }
-  .cal-weekdays span { font-size: 11px; font-weight: 600; color: var(--dust); }
-  .cal-days { row-gap: 4px; }
-  .cal-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-family: "Cormorant Garamond", serif; font-size: 19px; font-weight: 500; }
-  .cal-cell.empty { visibility: hidden; }
-  .cal-cell.hl { position: relative; color: var(--wine); font-weight: 600; font-size: 17px; }
-  .cal-heart { position: absolute; top: 50%; left: 50%; width: 150%; height: 150%; transform: translate(-50%, -50%); pointer-events: none; overflow: visible; }
-  .cal-heart path { fill: none; stroke: var(--wine); stroke-width: 1.3; stroke-linejoin: round; }
+  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; width: 100%; margin: clamp(24px, 4.5vh, 38px) 0 30px; }
+  .week-day { font-family: "Cormorant Garamond", serif; font-size: 15px; font-weight: 400; letter-spacing: .08em; color: var(--dust); margin-bottom: 10px; text-transform: uppercase; }
+  .week-num { position: relative; font-family: "Cormorant Garamond", serif; font-size: 22px; font-weight: 500; color: var(--wine-deep); height: 46px; display: flex; align-items: center; justify-content: center; }
+  .week-num.hl { color: var(--wine); font-weight: 600; }
+  .week-num.hl .heart-mark { position: absolute; inset: -10px; }
+  .week-num.hl .heart-mark path { fill: var(--wine); stroke: none; }
+  .week-num.hl .num-text { position: relative; color: #fff; }
 
   /* Program */
   .schedule { max-width: 520px; margin: 0 auto; text-align: left; position: relative; }
@@ -132,11 +127,6 @@
   html.js .orn.in::before, html.js .orn.in::after { transform: scaleX(1); }
   html.js .orn i { transform: scale(0); transition: transform .6s ease .2s; }
   html.js .orn.in i { transform: scale(1); }
-  @media (prefers-reduced-motion: no-preference) {
-    .hero-invite, .hero h1, .hero-date { animation: fadeUp 1s cubic-bezier(.22,.61,.36,1) both; }
-    .hero h1 { animation-delay: .5s; }
-    .hero-date { animation-delay: .7s; }
-  }
   @media (prefers-reduced-motion: reduce) {
     html.js .rv, html.js .orn i { opacity: 1; transform: none; transition: none; }
     html.js .orn::before, html.js .orn::after { transform: none; transition: none; }
@@ -155,37 +145,22 @@
 <div class="invite">
 
   <!-- HERO -->
-  <header class="hero">
-    <p class="hero-invite">Мы женимся!</p>
-    <div class="photos">
-      <figure class="frame"><img src="groom-child.jpg" alt="Иван в детстве" fetchpriority="high" decoding="async"></figure>
-      <figure class="frame"><img src="bride-child.jpg" alt="Дарина в детстве" fetchpriority="high" decoding="async"></figure>
+  <header class="hero section">
+    <p class="hero-word">wedding</p>
+    <div class="hero-block">
+      <div class="photos">
+        <figure class="frame"><img src="groom-child.jpg" alt="Иван в детстве" fetchpriority="high" decoding="async"><figcaption>Иван</figcaption></figure>
+        <figure class="frame"><img src="bride-child.jpg" alt="Дарина в детстве" fetchpriority="high" decoding="async"><figcaption>Дарина</figcaption></figure>
+      </div>
+
+
+      <div class="week"><span class="week-day">ПН</span><span class="week-day">ВТ</span><span class="week-day">СР</span><span class="week-day">ЧТ</span><span class="week-day">ПТ</span><span class="week-day">СБ</span><span class="week-day">ВС</span><span class="week-num">16</span><span class="week-num">17</span><span class="week-num">18</span><span class="week-num">19</span><span class="week-num hl"><svg class="heart-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27 C7 20.5 3 15.5 3 10.5 C3 6.3 6.3 3.5 10 3.5 C12.6 3.5 14.7 5 16 7.6 C17.3 5 19.4 3.5 22 3.5 C25.7 3.5 29 6.3 29 10.5 C29 15.5 25 20.5 16 27 Z"/></svg><span class="num-text">20</span></span><span class="week-num">21</span><span class="week-num">22</span></div>
     </div>
-    <h1>Иван<i>&amp;</i>Дарина</h1>
-    <div class="hero-date">20 · 11 · 2026</div>
+    <p class="greet-text">Мы верим, что этот день станет началом нашей счастливой семейной жизни.</p>
+    <p class="greet-text" style="margin-top:14px;">Поэтому не представляем наш праздник без вашего участия. Разделите с нами это главное событие осени — подарите нам своё внимание и поддержку.</p>
   </header>
 
-  <!-- GREETING -->
-  <section class="section">
-    <p class="eyebrow">Дорогие наши</p>
-    <h2 class="title">Внимание!</h2>
-    <div class="orn" aria-hidden="true"><i></i></div>
-    <p class="greet-text">Эти двое с фото считают вас близкими и дорогими сердцу людьми. Поэтому просят разделить с ними <em>часы счастья и радости</em> в день их свадьбы.</p>
-  </section>
-
   <div class="sep"><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 1v3M12 20v3M23 12h-3M4 12H1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1M19.8 19.8l-2.1-2.1M6.3 6.3L4.2 4.2"/></svg></div>
-
-  <!-- CALENDAR -->
-  <section class="section">
-    <p class="eyebrow">Запомните дату</p>
-    <h2 class="title">20 ноября 2026</h2>
-    <div class="orn" aria-hidden="true"><i></i></div>
-    <div class="cal-card">
-      <div class="cal-month">НОЯБРЬ</div>
-      <div class="cal-weekdays"><span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span></div>
-      <div class="cal-days" id="calDays"></div>
-    </div>
-  </section>
 
   <!-- PROGRAM -->
   <section class="section">
@@ -299,7 +274,7 @@
 
   // Плавное появление блоков при прокрутке
   (function () {
-    var sel = '.eyebrow, .title, .orn, .greet-text, .cal-card, .s-item, .loc-card, .sep, .rsvp-card, .waiting, .sig, .heart';
+    var sel = '.eyebrow, .title, .orn, .greet-text, .week, .s-item, .loc-card, .sep, .rsvp-card, .waiting, .sig, .heart';
     var els = document.querySelectorAll(sel);
     els.forEach(function (el) {
       el.classList.add('rv');
@@ -311,15 +286,6 @@
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
     }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
     els.forEach(function (el) { io.observe(el); });
-  })();
-
-  // Календарь: ноябрь 2026 (1 ноября — воскресенье), выделено 20-е
-  (function () {
-    var html = '', i;
-    for (i = 0; i < 6; i++) html += '<span class="cal-cell empty"></span>';
-    var heart = '<svg class="cal-heart" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 37 C10 28 4 20 4 13 C4 6 10 3 15 5 C18 6.5 20 9 22 13 C24 9 26 6.5 29 5 C34 3 40 6 40 13 C40 20 34 28 22 37 Z"/></svg>';
-    for (i = 1; i <= 30; i++) html += i === 20 ? '<span class="cal-cell hl">20' + heart + '</span>' : '<span class="cal-cell">' + i + '</span>';
-    document.getElementById('calDays').innerHTML = html;
   })();
 
   // RSVP
